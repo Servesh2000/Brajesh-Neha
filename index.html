@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brajesh & Neha - Wedding Invitation</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff4f4, #ffe6e6);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 850px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+  }
+
+  header {
+    background: linear-gradient(135deg, #ffb3b3, #ff9999);
+    color: #a00000;
+    padding: 30px 20px;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 34px;
+    animation: fadeDown 1s ease forwards;
+  }
+
+  header h2 {
+    margin: 8px 0;
+    font-size: 20px;
+    color: #6a0000;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .map-btn {
+    background: linear-gradient(90deg, #c62828, #ff7043);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+  }
+
+  .map-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ff7043, #c62828);
+  }
+
+  .welcome {
+    padding: 40px 20px 10px;
+  }
+
+  .welcome h2 {
+    font-size: 34px;
+    color: #c62828;
+    margin-bottom: 8px;
+    animation: slideIn 1s ease forwards;
+  }
+
+  .welcome p {
+    color: #444;
+    font-size: 17px;
+    animation: fadeUp 1.4s ease forwards;
+  }
+
+  .details {
+    padding: 20px 40px 40px;
+    text-align: left;
+    line-height: 1.8;
+  }
+
+  .detail-item {
+    margin-bottom: 14px;
+  }
+
+  .label {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+    color: #a00000;
+  }
+
+  .value {
+    color: #333;
+  }
+
+  .section {
+    padding: 20px 40px;
+    text-align: left;
+  }
+
+  .section h3 {
+    color: #c62828;
+    margin-bottom: 10px;
+    border-left: 5px solid #c62828;
+    padding-left: 10px;
+  }
+
+  .rsvp-btn {
+    display: inline-block;
+    background: #c62828;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .rsvp-btn:hover {
+    background: #ff7043;
+    transform: scale(1.05);
+  }
+
+  footer {
+    background: #fff3f3;
+    padding: 20px;
+    color: #555;
+    font-size: 14px;
+  }
+
+  @keyframes fadeDown {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes slideIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Confetti */
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="container">
+  <header>
+    <h1>💞 Brajesh & Neha 💞</h1>
+    <h2>Wedding Invitation | 26 November 2025</h2>
+    <button class="map-btn" id="openMap">📍 Open Directions</button>
+  </header>
+
+  <section class="welcome">
+    <h2>आपका स्वागत है</h2>
+    <p>With blessings of our families, we invite you to join us in celebrating our wedding.</p>
+  </section>
+
+  <section class="details">
+    <div class="detail-item"><span class="label">Date:</span><span class="value">Wednesday, 26 November 2025</span></div>
+    <div class="detail-item"><span class="label">Time:</span><span class="value">7:00 PM onwards</span></div>
+    <div class="detail-item"><span class="label">Venue:</span><span class="value">Hotel Uma Galaxy, Sainik Chauraha, Yashoda Nagar, Kanpur — 208011</span></div>
+    <div class="detail-item"><span class="label">Hosts:</span><span class="value">Mrs. Vidya Gupta & Mr. Ramji Seth, Mrs. Urmila Mishra & Lt. Laxami Chandra Mishra</span></div>
+    <div class="detail-item"><span class="label">Dress Code:</span><span class="value">Traditional / Festive</span></div>
+  </section>
+
+  <section class="section">
+    <h3>💫 Wedding Program</h3>
+    <p><b>7:00 PM</b> — Blessing Ceremony & Reception</p>
+    <p><b>8:30 PM</b> — Dinner & Music Celebration</p>
+  </section>
+
+  <section class="section">
+    <h3>💌 RSVP</h3>
+    <p>We would be delighted with your presence to grace this special day of our lives.</p>
+    <a href="tel:+919999999999" class="rsvp-btn">📞 Call Family</a>
+    <a href="#" class="rsvp-btn" id="shareInvite">🔗 Share Invite</a>
+  </section>
+
+  <footer>
+    Tap “Open Directions” to open the venue in Google Maps.<br>
+    Designed with ❤️ for the wedding of Brajesh & Neha.
+  </footer>
+</div>
+
+<script>
+  // ✅ Working Google Maps (no block)
+  document.getElementById("openMap").addEventListener("click", () => {
+    window.location.href = "https://maps.app.goo.gl/WbMTRvDqZYU5LAvs9"; // Replace with your Google Maps short link
+  });
+
+  // Share Invite
+  document.getElementById("shareInvite").addEventListener("click", async () => {
+    const shareData = {
+      title: "Brajesh & Neha Wedding Invitation",
+      text: "Join us in celebrating the wedding of Brajesh & Neha on 26 Nov 2025 at Hotel Uma Galaxy, Kanpur.",
+      url: window.location.href
+    };
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("Invite link copied! Share with your loved ones 💖");
+    }
+  });
+
+  // Confetti Animation
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+  let confetti = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function createConfetti() {
+    for (let i = 0; i < 150; i++) {
+      confetti.push({
+        x: random(0, canvas.width),
+        y: random(0, canvas.height),
+        r: random(2, 6),
+        color: `hsl(${random(0, 360)}, 100%, 70%)`,
+        speed: random(1, 3),
+      });
+    }
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetti.forEach((p) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    });
+  }
+
+  function updateConfetti() {
+    confetti.forEach((p) => {
+      p.y += p.speed;
+      if (p.y > canvas.height) p.y = 0;
+    });
+  }
+
+  function animate() {
+    drawConfetti();
+    updateConfetti();
+    requestAnimationFrame(animate);
+  }
+
+  createConfetti();
+  animate();
+</script>
+</body>
+</html>
